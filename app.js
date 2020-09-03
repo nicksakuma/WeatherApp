@@ -174,3 +174,5 @@ function displayWeather(){
     dayElement[i].innerHTML = days[today+i];
   }
 };
+
+console.log("test");
