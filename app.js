@@ -135,5 +135,3 @@ function getWeekday(today, i) {
   var daysIndex = today + i;
   return days[daysIndex%daysOfTheWeek]
 };
-
-//git test
