@@ -94,13 +94,13 @@ function getWeather(latitude, longitude) {
     //fix for 7day api
     country = data.timezone;
     for (var i = 0; i < daysOfTheWeek; i++) {
-      var temperature = Math.floor(data.daily[i].temp.night - kelvin);
+      var temperature = Math.floor(data.daily[i].temp.day - kelvin);
       var description = data.daily[i].weather[0].description;
       var icon = data.daily[i].weather[0].icon;
       weekdays[i].data = dayData = {
         temperature: temperature,
         description: description,
-        icon: icon
+        icon: getLottieIcon(icon)
       };
     }
   }).then(function () {
@@ -115,8 +115,7 @@ function displayWeather() {
     var day = weekdays[i];
     day.temperature.innerHTML = `${day.data.temperature}°<span>C</span>`;
     day.description.innerHTML = day.data.description;
-    day.icon.innerHTML = `<img src="icons/${day.data.icon}.png">`;
-
+    day.icon.innerHTML = `<lottie-player src="${day.data.icon}"  background="transparent"  speed="1"  style="width: 0.2rm; height: 0.5rm;"  loop autoplay></lottie-player>`;
     if (i === 0) {
       day.day.innerHTML = `<p>Current day: ${getWeekday(today,i)}</p>`;
     } else {
@@ -133,5 +132,66 @@ function getToday() {
 
 function getWeekday(today, i) {
   var daysIndex = today + i;
-  return days[daysIndex%daysOfTheWeek]
+  return days[daysIndex % daysOfTheWeek]
+};
+
+function getLottieIcon(iconID) {
+  switch (iconID) {
+    case "01d":
+      return "https://assets8.lottiefiles.com/temp/lf20_Stdaec.json"
+      break;
+    case "01n":
+      return "https://assets8.lottiefiles.com/temp/lf20_y6mY2A.json"
+      break;
+    case "02d":
+      return "https://assets5.lottiefiles.com/temp/lf20_dgjK9i.json"
+      break;
+    case "02n":
+      return "https://assets5.lottiefiles.com/temp/lf20_Jj2Qzq.json"
+      break;
+    case "03d":
+      return "https://assets5.lottiefiles.com/temp/lf20_dgjK9i.json"
+      break;
+    case "03n":
+      return "https://assets5.lottiefiles.com/temp/lf20_Jj2Qzq.json"
+      break;
+    case "04d":
+      return "https://assets5.lottiefiles.com/temp/lf20_VAmWRg.json"
+      break;
+    case "04n":
+      return "https://assets7.lottiefiles.com/temp/lf20_I5XMi9.json"
+      break;
+    case "09d":
+      return "https://assets7.lottiefiles.com/temp/lf20_rpC1Rd.json"
+      break;
+    case "09n":
+      return "https://assets7.lottiefiles.com/temp/lf20_rpC1Rd.json"
+      break;
+    case "10d":
+      return "https://assets7.lottiefiles.com/temp/lf20_rpC1Rd.json"
+      break;
+    case "10n":
+      return "https://assets7.lottiefiles.com/temp/lf20_rpC1Rd.json"
+      break;
+    case "11d":
+      return "https://assets7.lottiefiles.com/temp/lf20_JA7Fsb.json"
+      break;
+    case "11n":
+      return "https://assets7.lottiefiles.com/temp/lf20_XkF78Y.json"
+      break;
+    case "13d":
+      return "https://assets7.lottiefiles.com/temp/lf20_BSVgyt.json"
+      break;
+    case "13n":
+      return "https://assets7.lottiefiles.com/temp/lf20_RHbbn6.json"
+      break;
+    case "50d":
+      return "https://assets7.lottiefiles.com/temp/lf20_HflU56.json"
+      break;
+    case "50n":
+      return "https://assets7.lottiefiles.com/temp/lf20_kOfPKE.json"
+      break;
+    default:
+      return "https://assets7.lottiefiles.com/temp/lf20_VAmWRg.json"
+  }
 };

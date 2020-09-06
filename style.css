@@ -1,6 +1,19 @@
-/* body{
-    background-color: teal;
-} */
+
+body{
+    background-color: #001e2d;
+}
+
+/* Above Weather  */
+
+.app-title{
+    color: white;
+    font-size: 42px;
+}
+
+.location{
+    color: white;
+    font-size: 25px;
+}
 
 .notification{
     background-color: #f8d7da;
@@ -13,5 +26,27 @@
     margin: 0;
     text-align: center;
     padding: 10px 0;
+}
+
+/* Weather */
+
+.weather-container1{
+    padding-bottom:5px;
+    color: white;
+}
+
+.weatherBorder{
+    background-color: rgba(255, 255, 255, 0.7); 
+    margin: 2px;
+}
+
+.temperature-value1{
+
+    font-size: 100px;
+    padding-top: 50px;
+}
+
+.temperature-description1{
+    font-size: 25px;
 }
 
