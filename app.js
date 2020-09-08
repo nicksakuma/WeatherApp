@@ -87,7 +87,7 @@ function showError(error) {
 
 //CALL API (https://openweathermap.org/current)
 function getWeather(latitude, longitude) {
-  let api = `http://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`;
   fetch(api).then(function (response) {
     let data = response.json();
     return data;
