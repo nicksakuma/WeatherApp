@@ -8,6 +8,7 @@ const kelvin = 273;
 const key = "ecddf095c70c6d2e555941c22085a6be";
 
 // SELECT ELEMENTS
+
 var day1 = {
   day: document.querySelector(".day1"),
   temperature: document.querySelector(".temperature-value1 p"),
@@ -95,7 +96,8 @@ function getWeather(latitude, longitude) {
     country = data.timezone;
     for (var i = 0; i < daysOfTheWeek; i++) {
       var temperature = Math.floor(data.daily[i].temp.day - kelvin);
-      var description = data.daily[i].weather[0].description;
+      var lowercaseDescription = data.daily[i].weather[0].description;
+      var description =  uppercaseFirst(lowercaseDescription);
       var icon = data.daily[i].weather[0].icon;
       weekdays[i].data = dayData = {
         temperature: temperature,
@@ -104,6 +106,7 @@ function getWeather(latitude, longitude) {
       };
     }
   }).then(function () {
+    document.getElementById("loading").classList.add("hide");
     displayWeather();
   });
 };
@@ -113,11 +116,10 @@ function displayWeather() {
   var today = getToday() - 1;
   for (var i = 0; i < daysOfTheWeek; i++) {
     var day = weekdays[i];
-    day.temperature.innerHTML = `${day.data.temperature}°<span>C</span>`;
-    day.description.innerHTML = day.data.description;
-    day.icon.innerHTML = `<lottie-player src="${day.data.icon}"  background="transparent"  speed="1"  style="width: 0.2rm; height: 0.5rm;"  loop autoplay></lottie-player>`;
+    day.temperature.innerHTML = `${day.data.temperature}°<span>C</span><br>${day.data.description}`;
+    day.icon.innerHTML = `<lottie-player src="${day.data.icon}"  background="transparent"  speed="1"    loop autoplay></lottie-player>`;
     if (i === 0) {
-      day.day.innerHTML = `<p>Current day: ${getWeekday(today,i)}</p>`;
+      day.day.innerHTML = `<p>Today</p>`;
     } else {
       day.day.innerHTML = `<p>${getWeekday(today,i)}</p>`
     };
@@ -135,6 +137,8 @@ function getWeekday(today, i) {
   return days[daysIndex % daysOfTheWeek]
 };
 
+
+//THIS GUY -> https://lottiefiles.com/user/26177  REMEMBER TO ADD THE LICENCE
 function getLottieIcon(iconID) {
   switch (iconID) {
     case "01d":
@@ -194,4 +198,10 @@ function getLottieIcon(iconID) {
     default:
       return "https://assets7.lottiefiles.com/temp/lf20_VAmWRg.json"
   }
+};
+
+//Uppercase first letter
+function uppercaseFirst(string) 
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
 };

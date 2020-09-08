@@ -1,26 +1,22 @@
-
-body{
+body {
     background-color: #001e2d;
 }
 
 /* Above Weather  */
 
-.app-title{
-    color: white;
-    font-size: 42px;
-}
 
-.location{
+.location {
+    margin-top: 20px;
     color: white;
     font-size: 25px;
 }
 
-.notification{
+.notification {
     background-color: #f8d7da;
     display: none;
 }
 
-.notification p{
+.notification p {
     color: #721c24;
     font-size: 1.2em;
     margin: 0;
@@ -30,23 +26,39 @@ body{
 
 /* Weather */
 
-.weather-container1{
-    padding-bottom:5px;
+.weather-container1 {
+    padding-bottom: 5px;
     color: white;
 }
 
-.weatherBorder{
-    background-color: rgba(255, 255, 255, 0.7); 
-    margin: 2px;
+.weatherBorder {
+    /* background-color: rgba(255, 255, 255, 0.7);  */
+    margin: 4px;
+    float: left;
+    text-align: center;
+    color: white;
 }
 
-.temperature-value1{
+.temperature-value1 {
 
-    font-size: 100px;
-    padding-top: 50px;
+    font-size: 45px;
+    padding-top: 8rem;
 }
 
-.temperature-description1{
+.temperature-description1 {
     font-size: 25px;
 }
 
+.loadingText {
+    text-align: center;
+    color: white;
+}
+
+.loadingIcon {
+    display: block;
+    margin: 0 auto;
+}
+
+.hide {
+    display: none;
+}
