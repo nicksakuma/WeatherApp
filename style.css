@@ -1,5 +1,6 @@
 body {
     background-color: #001e2d;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Above Weather  */
@@ -62,3 +63,14 @@ body {
 .hide {
     display: none;
 }
+
+.footer {
+    position: absolute;
+    font-size: 5px;
+    bottom: 0;
+    width: 100%;
+    height: 20px; /* Set the fixed height of the footer here */
+    line-height: 20px; /* Vertically center the text there */
+    opacity: 50%;
+    text-align: center;
+  }
